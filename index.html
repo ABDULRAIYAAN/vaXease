@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VaXease - Enterprise Vaccination Compliance Management">
+  <title>VaXease | Vaccination Compliance Platform</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💉</span>
+        <span class="logo-text">VaXease</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="hr.html">HR Dashboard</a>
+        <a href="parent.html">Parent Portal</a>
+        <a href="nurse.html">Nurse Interface</a>
+        <a href="contact.html">Contact Us</a>
+        <button class="btn btn-outline" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Enterprise Vaccination Compliance</h1>
+        <p class="hero-subtitle">Manage compliance across HR, Parents, and Nurses with one seamless platform.</p>
+        <div class="hero-actions">
+          <a href="login.html" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+        <div class="hero-roles">
+          <a href="hr.html" class="role-card">
+            <span class="role-icon">👨‍💼</span>
+            <h3>HR Admin</h3>
+            <p>Employee onboarding, compliance tracking, reports</p>
+          </a>
+          <a href="parent.html" class="role-card">
+            <span class="role-icon">👨‍👩‍👧</span>
+            <h3>Parent Portal</h3>
+            <p>Schedule, QR check-in, certificates</p>
+          </a>
+          <a href="nurse.html" class="role-card">
+            <span class="role-icon">👩‍⚕️</span>
+            <h3>Nurse Interface</h3>
+            <p>Visits, QR scanner, vaccine checklist</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>

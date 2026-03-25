@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Dashboard | VaXease</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo"><span class="logo-icon">💉</span><span class="logo-text">VaXease</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="hr.html" class="nav-link active">HR Dashboard</a>
+        <a href="parent.html" class="nav-link">Parent Portal</a>
+        <a href="nurse.html" class="nav-link">Nurse Interface</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <button class="btn btn-outline" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container page-section">
+      <h1 class="page-title">HR Dashboard</h1>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="onboarding">Employee Onboarding</button>
+        <button class="tab" data-tab="compliance">Compliance</button>
+        <button class="tab" data-tab="status">Status Table</button>
+        <button class="tab" data-tab="documents">Document Upload</button>
+        <button class="tab" data-tab="scheduling">Nurse Scheduling</button>
+        <button class="tab" data-tab="reports">Reports</button>
+        <button class="tab" data-tab="alerts">Alerts</button>
+      </div>
+
+      <div id="onboarding" class="tab-content">
+        <div class="panel">
+          <div class="form-row" style="margin-bottom: 1rem;">
+            <input type="search" placeholder="Search by name or department..." style="flex: 1; max-width: 300px;">
+            <select style="width: auto;">
+              <option>All status</option>
+              <option>Compliant</option>
+              <option>Pending</option>
+              <option>Overdue</option>
+            </select>
+            <button class="btn btn-primary">+ Add Employee</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Child Age</th><th>Department</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sarah Johnson</td><td>5</td><td>Engineering</td><td><span class="badge badge-green">🟢 Compliant</span></td></tr>
+                <tr><td>Michael Chen</td><td>3</td><td>Marketing</td><td><span class="badge badge-yellow">🟡 Pending</span></td></tr>
+                <tr><td>Emma Williams</td><td>7</td><td>HR</td><td><span class="badge badge-red">🔴 Overdue</span></td></tr>
+                <tr><td>James Lee</td><td>4</td><td>Engineering</td><td><span class="badge badge-green">🟢 Compliant</span></td></tr>
+                <tr><td>Olivia Brown</td><td>6</td><td>Sales</td><td><span class="badge badge-yellow">🟡 Pending</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Bulk CSV upload supported. Pagination, sort, filter.</p>
+        </div>
+      </div>
+
+      <div id="compliance" class="tab-content" style="display: none;">
+        <div class="kpi-grid" style="margin-bottom: 1.5rem;">
+          <div class="kpi-card panel"><div class="kpi-value">71%</div><div class="kpi-label">Compliance Rate</div></div>
+          <div class="kpi-card panel"><div class="kpi-value">3</div><div class="kpi-label">Compliant</div></div>
+          <div class="kpi-card panel"><div class="kpi-value">2</div><div class="kpi-label">Pending</div></div>
+          <div class="kpi-card panel"><div class="kpi-value">1</div><div class="kpi-label">Overdue</div></div>
+        </div>
+        <div class="panel">
+          <h3 class="section-title">Coverage Map</h3>
+          <div class="calendar-placeholder">Interactive coverage map – API-ready</div>
+        </div>
+      </div>
+
+      <div id="status" class="tab-content" style="display: none;">
+        <div class="panel">
+          <input type="search" placeholder="Search status..." style="margin-bottom: 1rem; max-width: 300px;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Department</th><th>Status</th><th>Last Vaccinated</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sarah Johnson</td><td>Engineering</td><td><span class="badge badge-green">🟢 Compliant</span></td><td>2024-01-15</td></tr>
+                <tr><td>Michael Chen</td><td>Marketing</td><td><span class="badge badge-yellow">🟡 Pending</span></td><td>2023-11-20</td></tr>
+                <tr><td>Emma Williams</td><td>HR</td><td><span class="badge badge-red">🔴 Overdue</span></td><td>2023-08-10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="documents" class="tab-content" style="display: none;">
+        <div class="drop-zone panel">
+          <p style="margin: 0 0 0.5rem;">📤 Drag and drop files here or click to upload</p>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">PDF and images supported</p>
+          <button class="btn btn-primary" style="margin-top: 1rem;">Select Files</button>
+        </div>
+        <div class="panel" style="margin-top: 1rem;">
+          <p><strong>vaccine_cert_sarah.pdf</strong> – verified</p>
+          <p><strong>health_record_michael.png</strong> – pending</p>
+          <p><strong>proof_emma.pdf</strong> – rejected</p>
+        </div>
+      </div>
+
+      <div id="scheduling" class="tab-content" style="display: none;">
+        <div class="panel">
+          <h3 class="section-title">Interactive Calendar</h3>
+          <div class="calendar-placeholder" style="margin-bottom: 1rem;">Calendar view</div>
+          <button class="btn btn-primary">📅 Book Visit (Apollo API)</button>
+          <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Integrate with Apollo API for nurse scheduling</p>
+        </div>
+      </div>
+
+      <div id="reports" class="tab-content" style="display: none;">
+        <div class="kpi-grid">
+          <div class="panel kpi-card" style="cursor: pointer; text-align: center;">
+            <p style="font-size: 2rem; margin-bottom: 0.5rem;">📄</p>
+            <strong>Export PDF Certificates</strong>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">Download</p>
+          </div>
+          <div class="panel kpi-card" style="cursor: pointer; text-align: center;">
+            <p style="font-size: 2rem; margin-bottom: 0.5rem;">📊</p>
+            <strong>Export Excel Summary</strong>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">Download</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="alerts" class="tab-content" style="display: none;">
+        <div class="panel">
+          <h3 class="section-title">Automated Reminders</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">Email + SMS reminders for overdue compliance.</p>
+          <div class="alert alert-danger">
+            <strong>Emma Williams</strong>
+            <span class="badge badge-red">🔴 Overdue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/tabs.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | VaXease</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo"><span class="logo-icon">💉</span><span class="logo-text">VaXease</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <button class="btn btn-outline" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="login-page">
+    <div class="login-box panel">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span style="font-size: 3rem;">💉</span>
+        <h1 style="font-family: 'Outfit', sans-serif; margin: 0.5rem 0;">VaXease</h1>
+        <p style="color: var(--text-muted); margin: 0;">Vaccination Compliance Platform</p>
+      </div>
+
+      <form action="hr.html" method="get" onsubmit="return handleLogin(event)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role" onchange="updateRedirect()">
+            <option value="hr">HR Admin</option>
+            <option value="manager">Manager</option>
+            <option value="viewer">Viewer</option>
+            <option value="parent">Parent</option>
+            <option value="nurse">Nurse</option>
+          </select>
+        </div>
+        <a href="contact.html" style="display: block; text-align: center; margin-bottom: 1rem; color: var(--primary); font-size: 0.9rem;">Contact Us</a>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem;">Sign In</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script>
+    function updateRedirect() {
+      var role = document.getElementById('role').value;
+      var form = document.querySelector('form');
+      form.action = role === 'parent' ? 'parent.html' : role === 'nurse' ? 'nurse.html' : 'hr.html';
+    }
+    function handleLogin(e) {
+      e.preventDefault();
+      var role = document.getElementById('role').value;
+      if (role === 'parent') window.location = 'parent.html';
+      else if (role === 'nurse') window.location = 'nurse.html';
+      else window.location = 'hr.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

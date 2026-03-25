@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Portal | VaXease</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo"><span class="logo-icon">💉</span><span class="logo-text">VaXease</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="hr.html" class="nav-link">HR Dashboard</a>
+        <a href="parent.html" class="nav-link active">Parent Portal</a>
+        <a href="nurse.html" class="nav-link">Nurse Interface</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <button class="btn btn-outline" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container container-sm page-section">
+      <h1 class="page-title">Parent Portal</h1>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">Profile Setup</h3>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <span class="badge badge-green" style="padding: 0.5rem 1rem;">1. Link HR Account</span>
+          <span class="badge badge-yellow" style="padding: 0.5rem 1rem;">2. Add Child Info</span>
+          <span class="badge" style="background: #e2e8f0; color: #64748b; padding: 0.5rem 1rem;">3. Complete Setup</span>
+        </div>
+        <button class="btn btn-primary">Complete Profile</button>
+      </div>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">📅 Schedule View</h3>
+        <p><strong>Next Vaccine Date:</strong> March 15, 2024</p>
+        <p style="color: var(--text-muted);">Nurse visit confirmed</p>
+      </div>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">QR Check-In</h3>
+        <div class="drop-zone" style="cursor: pointer;">
+          <p style="font-size: 2rem; margin-bottom: 0.5rem;">📱</p>
+          <p style="margin: 0;">Scan to verify</p>
+        </div>
+        <p id="qr-result" style="display: none; color: #10b981; font-weight: 500;">✓ Verification successful</p>
+      </div>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">🔔 Notifications</h3>
+        <p><strong>Nurse arriving in 30 minutes</strong> <span style="color: var(--text-muted);">10 min ago</span></p>
+        <p><strong>Vaccine reminder: MMR due March 15</strong> <span style="color: var(--text-muted);">1 hour ago</span></p>
+      </div>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">Certificate Download</h3>
+        <a href="#" class="btn btn-secondary" style="width: 100%;">📥 Post-visit digital proof</a>
+      </div>
+
+      <div class="panel">
+        <h3 class="section-title">How likely are you to recommend VaXease?</h3>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+          <button class="btn btn-outline nps-btn">1</button>
+          <button class="btn btn-outline nps-btn">2</button>
+          <button class="btn btn-outline nps-btn">3</button>
+          <button class="btn btn-outline nps-btn">4</button>
+          <button class="btn btn-outline nps-btn">5</button>
+          <button class="btn btn-outline nps-btn">6</button>
+          <button class="btn btn-outline nps-btn">7</button>
+          <button class="btn btn-outline nps-btn">8</button>
+          <button class="btn btn-outline nps-btn">9</button>
+          <button class="btn btn-outline nps-btn">10</button>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Not likely ← → Very likely</p>
+        <p id="nps-thanks" style="display: none; color: #10b981; margin-top: 1rem;">Thank you for your feedback!</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script>
+    document.querySelector('.drop-zone').addEventListener('click', function() {
+      document.getElementById('qr-result').style.display = 'block';
+    });
+    document.querySelectorAll('.nps-btn').forEach(function(btn, i) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.nps-btn').forEach(function(b) { b.classList.remove('active'); b.classList.add('btn-outline'); });
+        this.classList.add('active');
+        this.classList.remove('btn-outline');
+        document.getElementById('nps-thanks').style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

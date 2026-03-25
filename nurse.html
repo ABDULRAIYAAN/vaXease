@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nurse Interface | VaXease</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo"><span class="logo-icon">💉</span><span class="logo-text">VaXease</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="hr.html" class="nav-link">HR Dashboard</a>
+        <a href="parent.html" class="nav-link">Parent Portal</a>
+        <a href="nurse.html" class="nav-link active">Nurse Interface</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <button class="btn btn-outline" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container container-sm page-section">
+      <h1 class="page-title">Nurse Interface</h1>
+
+      <div class="alert alert-danger" id="cold-chain">
+        <span style="font-size: 1.5rem;">⚠️</span>
+        <div style="flex: 1;">
+          <strong>Temperature Deviation Detected</strong>
+          <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Photo evidence upload required. Cold chain protocol initiated.</p>
+        </div>
+        <button class="btn btn-primary" onclick="document.getElementById('cold-chain').style.display='none'">Upload Evidence</button>
+      </div>
+
+      <div class="tabs" style="margin-bottom: 1.5rem;">
+        <button class="tab active">Home</button>
+        <button class="tab">Active Visits</button>
+        <button class="tab">Completed</button>
+      </div>
+
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">🛵 Travel status: En route to next visit</p>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid var(--border);">
+          <div>
+            <strong>Sarah Johnson</strong>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--text-muted);">Child: 5 yrs • 123 Main St</p>
+          </div>
+          <span class="badge badge-yellow">active</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid var(--border);">
+          <div>
+            <strong>Michael Chen</strong>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--text-muted);">Child: 3 yrs • 456 Oak Ave</p>
+          </div>
+          <span class="badge badge-neutral">scheduled</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
+          <div>
+            <strong>Emma Williams</strong>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--text-muted);">Child: 7 yrs • 789 Pine Rd</p>
+          </div>
+          <span class="badge badge-green">completed</span>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-bottom: 2rem;">
+        <h3 class="section-title">QR Scanner</h3>
+        <div class="drop-zone" style="cursor: pointer;" id="scanner-zone">
+          <p style="font-size: 2rem; margin-bottom: 0.5rem;">📱</p>
+          <p style="margin: 0;">Camera verification – Tap to scan</p>
+        </div>
+        <p id="scan-result" style="display: none; color: #10b981; font-weight: 500;">✓ Scan verified • Auto-complete</p>
+      </div>
+
+      <div class="panel">
+        <h3 class="section-title">Patient Profile</h3>
+        <div class="form-row" style="margin-bottom: 1rem;">
+          <div class="form-group" style="flex: 1;"><label>Child age</label><p style="margin: 0;">5 years</p></div>
+          <div class="form-group" style="flex: 1;"><label>Vaccine history</label><p style="margin: 0;">Polio, MMR, HepB</p></div>
+        </div>
+        <div class="form-group" style="background: rgba(245,158,11,0.1); padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+          <label>Allergies</label>
+          <p style="margin: 0;">None recorded</p>
+        </div>
+        <h3 class="section-title">Vaccine Checklist (8)</h3>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Polio</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> MMR</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> HepB</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Varicella</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> DTaP</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> HPV</label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> COVID-19</label>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary">📷 Photo proof</button>
+          <span style="padding: 0.5rem 1rem; background: rgba(16,185,129,0.2); border-radius: 0.5rem; color: #10b981;">✓ Auto-sync</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script>
+    document.getElementById('scanner-zone').addEventListener('click', function() {
+      document.getElementById('scan-result').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
